@@ -1,0 +1,22 @@
+kind: Service
+apiVersion: v1
+metadata:
+  annotations:
+    openshift.io/generated-by: OpenShiftNewApp
+  selfLink: /api/v1/namespaces/fiap-grupo5/services/blog-django-fiap
+  resourceVersion: '17488791'
+  name: blog-django-fiap
+  namespace: fiap-grupo5
+  labels:
+    app: blog-django-fiap
+    app.kubernetes.io/component: blog-django-fiap
+    app.kubernetes.io/instance: blog-django-fiap
+spec:
+  ports:
+    - name: 8080-tcp
+      protocol: TCP
+      port: 8080
+      targetPort: 8080
+  selector:
+    deployment: blog-django-fiap
+  sessionAffinity: None

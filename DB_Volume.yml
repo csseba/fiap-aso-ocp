@@ -1,0 +1,22 @@
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  annotations:
+    openshift.io/generated-by: OpenShiftNewApp
+    pv.kubernetes.io/bind-completed: 'yes'
+    pv.kubernetes.io/bound-by-controller: 'yes'
+    volume.beta.kubernetes.io/storage-provisioner: kubernetes.io/cinder
+    volume.kubernetes.io/selected-node: na46-bjfsg-worker-0-lpvpl
+  selfLink: /api/v1/namespaces/fiap-grupo5/persistentvolumeclaims/blog-database
+  name: blog-database
+  namespace: fiap-grupo5
+  finalizers:
+    - kubernetes.io/pvc-protection
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 1Gi
+  storageClassName: standard
+  volumeMode: Filesystem

@@ -1,0 +1,18 @@
+kind: Service
+apiVersion: v1
+metadata:
+  annotations:
+    openshift.io/generated-by: OpenShiftNewApp
+    template.openshift.io/expose-uri: 'postgres://{.spec.clusterIP}:{.spec.ports[?(.name=="postgresql")].port}'
+  selfLink: /api/v1/namespaces/fiap-grupo5/services/blog-database
+  name: blog-database
+  namespace: fiap-grupo5
+spec:
+  ports:
+    - name: postgresql
+      protocol: TCP
+      port: 5432
+      targetPort: 5432
+  selector:
+    name: blog-database
+  sessionAffinity: None

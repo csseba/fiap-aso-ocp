@@ -2,12 +2,12 @@ apiVersion: autoscaling/v2beta2
 kind: HorizontalPodAutoscaler
 metadata:
   name: hpa-atividade-fiap
-  namespace: fiap-aso6-grupo5
+  namespace: fiap-grupo5
 spec:
   scaleTargetRef:
     apiVersion: apps/v1
     kind: Deployment
-    name: blog-django-py
+    name: blog-django-fiap
   minReplicas: 2
   maxReplicas: 10
   metrics:
