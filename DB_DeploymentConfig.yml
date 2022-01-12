@@ -42,10 +42,6 @@ spec:
       annotations:
         openshift.io/generated-by: OpenShiftNewApp
     spec:
-      volumes:
-        - name: blog-database-data
-          persistentVolumeClaim:
-            claimName: blog-database
       containers:
         - resources:
             limits:
@@ -94,9 +90,6 @@ spec:
             - containerPort: 5432
               protocol: TCP
           imagePullPolicy: IfNotPresent
-          volumeMounts:
-            - name: blog-database-data
-              mountPath: /var/lib/pgsql/data
           terminationMessagePolicy: File
           image: >-
             image-registry.openshift-image-registry.svc:5000/openshift/postgresql@sha256:c58b255376a4c1f6744b56389f0984f465b74e9c6a62626894f850ab74dec0ea
