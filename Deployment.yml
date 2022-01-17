@@ -6,9 +6,9 @@ metadata:
     template.openshift.io/expose-database_name: '{.data[''database-name'']}'
     template.openshift.io/expose-password: '{.data[''database-password'']}'
     template.openshift.io/expose-username: '{.data[''database-user'']}'
-  selfLink: /api/v1/namespaces/fiap-grupo5/secrets/blog-database
+  selfLink: /api/v1/namespaces/fiap/secrets/blog-database
   name: blog-database
-  namespace: fiap-grupo5
+  namespace: fiap
 data:
   database-name: YmxvZ2Ri
   database-password: c2FtcGxlZGI=
@@ -24,10 +24,10 @@ metadata:
     openshift.io/generated-by: OpenShiftNewApp
     template.alpha.openshift.io/wait-for-ready: 'true'
   selfLink: >-
-    /apis/apps.openshift.io/v1/namespaces/fiap-grupo5/deploymentconfigs/blog-database
+    /apis/apps.openshift.io/v1/namespaces/fiap/deploymentconfigs/blog-database
   name: blog-database
   generation: 2
-  namespace: fiap-grupo5
+  namespace: fiap
 spec:
   strategy:
     type: Recreate
@@ -126,9 +126,9 @@ metadata:
   annotations:
     openshift.io/generated-by: OpenShiftNewApp
     template.openshift.io/expose-uri: 'postgres://{.spec.clusterIP}:{.spec.ports[?(.name=="postgresql")].port}'
-  selfLink: /api/v1/namespaces/fiap-grupo5/services/blog-database
+  selfLink: /api/v1/namespaces/fiap/services/blog-database
   name: blog-database
-  namespace: fiap-grupo5
+  namespace: fiap
 spec:
   ports:
     - name: postgresql
@@ -149,7 +149,7 @@ metadata:
     image.openshift.io/triggers: >-
       [{"from":{"kind":"ImageStreamTag","name":"blog-django-fiap:latest"},"fieldPath":"spec.template.spec.containers[?(@.name==\"blog-django-fiap\")].image"}]
     openshift.io/generated-by: OpenShiftNewApp
-  selfLink: /apis/apps/v1/namespaces/fiap-grupo5/deployments/blog-django-fiap
+  selfLink: /apis/apps/v1/namespaces/fiap/deployments/blog-django-fiap
   name: blog-django-fiap
 spec:
   replicas: 2
@@ -214,8 +214,8 @@ kind: Secret
 apiVersion: v1
 metadata:
   name: connection
-  namespace: fiap-grupo5
-  selfLink: /api/v1/namespaces/fiap-grupo5/secrets/connection
+  namespace: fiap
+  selfLink: /api/v1/namespaces/fiap/secrets/connection
 data:
   connection: cG9zdGdyZXNxbDovL3NhbXBsZWRiOnNhbXBsZWRiQGJsb2ctZGF0YWJhc2U6NTQzMi9ibG9nZGI=
 type: Opaque
@@ -227,10 +227,10 @@ apiVersion: v1
 metadata:
   annotations:
     openshift.io/generated-by: OpenShiftNewApp
-  selfLink: /api/v1/namespaces/fiap-grupo5/services/blog-django-fiap
+  selfLink: /api/v1/namespaces/fiap/services/blog-django-fiap
   resourceVersion: '17488791'
   name: blog-django-fiap
-  namespace: fiap-grupo5
+  namespace: fiap
   labels:
     app: blog-django-fiap
     app.kubernetes.io/component: blog-django-fiap
@@ -252,9 +252,9 @@ apiVersion: route.openshift.io/v1
 metadata:
   annotations:
     openshift.io/host.generated: 'true'
-  selfLink: /apis/route.openshift.io/v1/namespaces/fiap-grupo5/routes/blog-django-fiap
+  selfLink: /apis/route.openshift.io/v1/namespaces/fiap/routes/blog-django-fiap
   name: blog-django-fiap
-  namespace: fiap-grupo5
+  namespace: fiap
   labels:
     app: blog-django-fiap
     app.kubernetes.io/component: blog-django-fiap
@@ -275,7 +275,7 @@ apiVersion: autoscaling/v2beta2
 kind: HorizontalPodAutoscaler
 metadata:
   name: hpa-atividade-fiap
-  namespace: fiap-grupo5
+  namespace: fiap
 spec:
   scaleTargetRef:
     apiVersion: apps/v1
