@@ -7,5 +7,5 @@ oc create -f https://raw.githubusercontent.com/csseba/fiap-aso-ocp/main/Deployme
 
 Notes:
   - Since we don't have permission to create a project via yml file, we are assuming the project with namespace Fiap already exists.
-  - The blog will be exposed in the following route: fase4-grupo5-fiap.apps.na46.prod.nextcle.com
+  - The blog will be exposed in the following route: http://grupo5-fiap.apps.na46.prod.nextcle.com/login/
   - Please note that docker hub limits the number of image pulls, it means that you may need to be authenticated on docker.
